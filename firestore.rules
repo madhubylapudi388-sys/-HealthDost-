@@ -1,0 +1,47 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper function to check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Helper function to check if user is the document owner
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    // Helper function to check if current user is an ASHA health worker or clinician
+    function isHealthWorker() {
+      return isAuthenticated() && 
+        (get(/databases/database/documents/users/$(request.auth.uid)).data.role == 'asha_worker' ||
+         get(/databases/database/documents/users/$(request.auth.uid)).data.role == 'clinician');
+    }
+
+    // User Profile Documents
+    match /users/{userId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated() && request.auth.uid == userId;
+      allow update: if isOwner(userId) || isHealthWorker();
+      allow delete: if false; // Safety: prevent profile deletion
+    }
+
+    // Health Assessment Records
+    match /healthAssessments/{assessmentId} {
+      // User can read their own records; Health workers/clinicians can review patient assessments
+      allow read: if isAuthenticated() && 
+        (resource.data.userId == request.auth.uid || isHealthWorker());
+      
+      // User can create their own assessment record
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      
+      // Assessment update or annotate
+      allow update: if isAuthenticated() && 
+        (resource.data.userId == request.auth.uid || isHealthWorker());
+        
+      // Deletion restricted to record owner
+      allow delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+  }
+}

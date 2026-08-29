@@ -1,0 +1,39 @@
+{
+  "entities": {
+    "users": {
+      "title": "User Profiles",
+      "description": "Registered user accounts and clinical authorization roles (patient, asha_worker, clinician)",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "role": { "type": "string", "enum": ["patient", "asha_worker", "clinician"] },
+        "createdAt": { "type": "string" },
+        "phoneNumber": { "type": "string" },
+        "preferredLanguage": { "type": "string" }
+      },
+      "required": ["email", "role", "createdAt"]
+    },
+    "healthAssessments": {
+      "title": "Health Assessments",
+      "description": "User risk calculation histories, vitals, biomarkers, and prevention commitments",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "patientName": { "type": "string" },
+        "overallScore": { "type": "number" },
+        "riskLevel": { "type": "string", "enum": ["low", "moderate", "high"] },
+        "diabetesScore": { "type": "number" },
+        "heartScore": { "type": "number" },
+        "bmiValue": { "type": "number" },
+        "bmiCategory": { "type": "string" },
+        "answers": { "type": "object" },
+        "topRiskFactors": { "type": "array" },
+        "plainLanguageSummary": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "required": ["userId", "overallScore", "riskLevel", "createdAt"]
+    }
+  }
+}

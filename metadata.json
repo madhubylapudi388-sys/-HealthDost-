@@ -1,0 +1,7 @@
+{
+  "name": "HealthDost",
+  "description": "Friendly AI Health Risk Predictor and awareness tool for early prevention nudges.",
+  "requestFramePermissions": ["microphone", "camera", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

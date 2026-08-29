@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #f0f4f8;
+    color: #1e293b;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+.font-cultural {
+  font-family: 'Fraunces', 'Georgia', serif;
+}
+
+/* Glassmorphism / Glass Polymorphism Core Engine */
+.glass-container {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.07), 0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px) saturate(170%);
+  -webkit-backdrop-filter: blur(16px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05), inset 0 1px 2px 0 rgba(255, 255, 255, 0.95);
+}
+
+.glass-card-interactive {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px) saturate(170%);
+  -webkit-backdrop-filter: blur(16px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 25px -5px rgba(15, 23, 42, 0.05), inset 0 1px 2px 0 rgba(255, 255, 255, 0.9);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-interactive:hover {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 15px 35px -5px rgba(15, 23, 42, 0.09), inset 0 1px 3px 0 rgba(255, 255, 255, 1);
+  transform: translateY(-2px);
+}
+
+.glass-card-subtle {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.glass-card-dark {
+  background: rgba(15, 23, 42, 0.78);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.35), inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.glass-modal {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.2), inset 0 1px 2px 0 rgba(255, 255, 255, 1);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.glass-input:focus {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(14, 165, 233, 0.6);
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+/* Glass Polymorphism Color Themes */
+.glass-emerald {
+  background: rgba(236, 253, 245, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(167, 243, 208, 0.8);
+  box-shadow: 0 10px 25px -5px rgba(5, 150, 105, 0.08), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.glass-blue {
+  background: rgba(239, 246, 255, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(191, 219, 254, 0.8);
+  box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.08), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.glass-amber {
+  background: rgba(254, 243, 199, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(253, 230, 138, 0.8);
+  box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.08), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.glass-rose {
+  background: rgba(255, 241, 242, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(254, 205, 211, 0.85);
+  box-shadow: 0 10px 25px -5px rgba(225, 29, 72, 0.08), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.glass-indigo {
+  background: rgba(238, 242, 255, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(199, 210, 254, 0.8);
+  box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.08), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+/* Ambient Floating Lights for Refraction Behind Glass */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -40px) scale(1.08);
+  }
+  66% {
+    transform: translate(-25px, 25px) scale(0.95);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(-35px, 30px) scale(1.05);
+  }
+  66% {
+    transform: translate(25px, -30px) scale(0.92);
+  }
+}
+
+.animate-ambient-1 {
+  animation: float-slow 18s ease-in-out infinite;
+}
+
+.animate-ambient-2 {
+  animation: float-reverse 22s ease-in-out infinite;
+}
+
+.animate-ambient-3 {
+  animation: float-slow 25s ease-in-out infinite reverse;
+}
+
+.bg-linen {
+  background-color: #f5f5f0;
+}
+
+.bg-earth-olive {
+  background-color: #5a5a40;
+}
+
+.text-earth-olive {
+  color: #5a5a40;
+}
+
+.border-earth-olive {
+  border-color: #5a5a40;
+}
+
+.bg-warm-saffron {
+  background-color: #f27d26;
+}
+
+.text-warm-saffron {
+  color: #f27d26;
+}
+
+.border-warm-saffron {
+  border-color: #f27d26;
+}
+
